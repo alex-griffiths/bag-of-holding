@@ -1,0 +1,33 @@
+[package]
+name = "bag-of-holding"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "bag-of-holding"
+
+[dependencies]
+actix-web = "4.5.1"
+config = "0.14.0"
+env_logger = "0.11.3"
+reqwest = "0.12.4"
+serde = { version = "1.0.202", features = ["derive"] }
+svix-ksuid = "0.8.0"
+tokio = { version = "1.37.0", features = ["macros", "rt-multi-thread"] }
+tracing = { version = "0.1.40", features = ["log"] }
+
+[dependencies.sqlx]
+version = "0.6.0"
+default-features = false
+features = [
+    "runtime-tokio-rustls",
+    "macros",
+    "postgres",
+    "uuid",
+    "chrono",
+    "migrate",
+]
